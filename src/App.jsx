@@ -1,6 +1,10 @@
+import FormLogin from "./Components/Login";
 
 function App() {
-  return 
+  return(
+    <FormLogin/>
+  )
+
 }
 
 export default App;
