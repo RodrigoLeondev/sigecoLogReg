@@ -1,11 +1,16 @@
 import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
+import NavLanding from "../Nav"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function FormLogin() {
     
 
   	return (
   		<>
+			<NavLanding />
+
+			<div className="wrapper">
 			<Formik
 				initialValues={ {
 					user: '',
@@ -13,32 +18,36 @@ export default function FormLogin() {
 				}}
 				validate={(valores) => {
 					let errors = {}
-
+					
 					// User validation
-						if(!valores.user){
-							errors.user = 'Ingresa un correo'
-						} else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.user)){
-								errors.user = 'Correo invalido'
-						}
+					if(!valores.user){
+						errors.user = 'Ingresa un correo'
+					} else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.user)){
+						errors.user = 'Correo invalido'
+					}
 					// Password Validation, cambiar regex
-						if(!valores.password){
-							errors.password = 'Ingresa un correo'
-						} else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.password)){
-								errors.password = 'Contraseña con carácteres inválidos'
-						}
+					if(!valores.password){
+						errors.password = 'Ingresa un correo'
+					} else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.password)){
+						errors.password = 'Contraseña con carácteres inválidos'
+					}
 					return errors
-
+					
 				}}
 				onSubmit={(valores, {resetForm}) => {
 					resetForm() // Clean Form
 					console.log('Formulario enviado')
 				}}
-			>
+				>
 					{( {values, errors, touched, handleSubmit, handleChange, handleBlur} ) => (
-					<Form className="formLogin">
+						<Form className="formLogin">
+							<p>Iniciar Sesión</p>
 						<div>
-							<label htmlFor="nombre">Usuario</label>
-							<Field 
+							<div className="label">
+								<label htmlFor="nombre">Usuario</label>
+							</div>
+							
+							<Field className='inputLogin'
 								type="email" 
 								id="name" 
 								name="user" 
@@ -47,25 +56,29 @@ export default function FormLogin() {
 								{/* <ErrorMessage name='user' component={()=> {
 									<p>{errors.user}</p>
 								}}/> */} 
-								{touched.user && errors.user && <p>{errors.user}</p>}
+								{touched.user && errors.user && <div className="errors">{errors.user}</div>}
 						</div>
 
 						<div>
-							<label htmlFor="nombre">Contraseña</label>
-							<Field 
+							<div className="label">
+								<label htmlFor="nombre">Contraseña</label>
+							</div>
+							
+							<Field className='inputLogin'
 								type="text" 
 								id="password" 
 								name="password" 
 								placeholder="Contraseña" 
-
+								
 								/>
-								{touched.password && errors.password && <p>{errors.password}</p>}
+								{touched.password && errors.password && <div className="errors">{errors.password}</div>}
 						</div>
-						<button type="submit">Entrar</button>
-						<p>¿Olvidaste tu contraseña?</p>
+						<button className="buttonLogin" type="submit">Entrar</button>
+						<div className="lostPass">¿Olvidaste tu contraseña?</div>
 					</Form>		
 					)}
 			</Formik>
+					</div>
 
 
   		</>
