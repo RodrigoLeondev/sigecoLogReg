@@ -10,6 +10,11 @@ body {
   display: flex;
   justify-content: center;
 }
+.wrapperRegister{
+  color: white;
+  display: flex;
+  
+}
 
 *{
   font-family: 'Montserrat', sans-serif;
@@ -37,9 +42,33 @@ body {
   width: 186px;
   border-style: hidden;
   
+}
+.containerNameLast{
+  display: flex;
+  column-gap: 10px;
+}
+#register{
+  height: 700px;
  
 }
-.formLogin {
+.containerForm {
+  display: flex;
+  column-gap: 50px;
+
+}
+.info {
+  width: 606px;
+  height: 205px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  margin-top: 135px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.form {
   width: 600px;
   height: 496px;
 	margin-top: 50px;
@@ -52,7 +81,7 @@ body {
   align-items: center;
 }
 
-.formLogin p {
+.form p {
   font-size: 35px;
 
 }
@@ -63,13 +92,17 @@ body {
 .lostPass{
   font-size: 14px;
 }
-.inputLogin{
+
+.input{
   background-color: #797575;
   border-radius: 5px;
   width: 470px;
   height: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: none;
+}
+#input2{
+  width: 225px;
 }
 
 .buttonLogin {

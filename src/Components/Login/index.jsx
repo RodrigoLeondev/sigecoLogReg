@@ -40,14 +40,14 @@ export default function FormLogin() {
 				}}
 				>
 					{( {values, errors, touched, handleSubmit, handleChange, handleBlur} ) => (
-						<Form className="formLogin">
+						<Form className="form">
 							<p>Iniciar Sesión</p>
 						<div>
 							<div className="label">
 								<label htmlFor="nombre">Usuario</label>
 							</div>
 							
-							<Field className='inputLogin'
+							<Field className='input'
 								type="email" 
 								id="name" 
 								name="user" 
@@ -64,7 +64,7 @@ export default function FormLogin() {
 								<label htmlFor="nombre">Contraseña</label>
 							</div>
 							
-							<Field className='inputLogin'
+							<Field className='input'
 								type="text" 
 								id="password" 
 								name="password" 
